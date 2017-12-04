@@ -41,7 +41,9 @@
 \break
 
 \section*{Abstract}
-Project Stride strives to provide a means for caretakers to have peace of mind while offering users freedom in the form of a location reporting shoe that is completely sustained on the kinetic energy a human generates by walking. Our project
+Project Stride strives to provide a means for caretakers to have peace of mind while offering users freedom in the form of a location reporting shoe that is completely sustained on the kinetic energy a human generates by walking. This is is accomplished by taking advantage of the voltage generating properties of piezoceramics and transferring them to electronics built into the sole of a shoe. This shoe will then communicate to the caretaker's mobile device via an antenna to determine the shoe user's location.
+
+With the first semester wrapping up, the project has had to push back the software portion of the schedule because of unexpected realizations of milestones relying on other milestones. However, hardware prototyping is operational and ready to demonstrate.
 
 \break
 
@@ -64,16 +66,16 @@ The project we are designing is an incredibly low powered system and can be cons
 	\caption{\label{fig:Diagram}Goal Analysis for the Entire Year}
 \end{figure}
 
-The energy system is centered around the use of piezoceramic disks as a means to convert kinetic energy from walking into electrical energy. As piezo ceramics are known for generating a voltage whenever pressure is applied to them, this voltage will then be harvested into an energy bank taking the form of either a battery or super capacitor. The energy then feeds into the transmitter, microprocessor, and GPS module.
+The energy system is centered around the use of piezoceramic disks as a means to convert kinetic energy from walking into electrical energy. As piezo ceramics are known for generating a voltage whenever pressure is applied to them, this voltage will then be harvested into an energy bank taking the form of either a battery or super capacitor. The energy then feeds into the microprocessor which powers the transmitter and GPS module.
 
-The microprocessor will be used as a means to interpret location data from the GPS. This location data is then send to the transmitter when the microprocessor determines that the user is no longer within a specified area or if the transmitter receives a request from a cell phone for the location data. While this transmitter is intended to be a long range antenna for use without a cell phone, for testing purposes we will be using a bluetooth module.
+The microprocessor will be used as a means to interpret location data from the GPS. This location data is then sent to the transmitter when the microprocessor determines that the user is no longer within a specified area or if the transmitter receives a request from a cell phone for the location data. While this transmitter is intended to be a long range antenna for use without a cell phone, for testing purposes we will be using a bluetooth module as it is cheaper and easier to implement.
 
 \section{Goal Analysis}\label{sec:Goal}
 Our target objective for this project is to create a shoe that will be able to convert kinetic energy made by walking into usable electrical energy. This energy will power a microcontroller that will relay the location of the user's shoe to an android app on another user's phone. In order to reach this target objective, subgoals have been defined as seen in Fig. \ref{fig:Flowchart} to create benchmarks for progress.
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[trim=25 275 40 75, clip, width=\columnwidth]{ProjectStrideGoalAnaylsis.pdf}
+		\includegraphics[trim=25 275 10 75, clip, width=\columnwidth]{ProjectStrideGoalAnaylsis.pdf}
 	\end{center}
 	\vspace{-1em}
 	\caption{\label{fig:Flowchart}Goal Analysis for the Entire Year}
@@ -81,29 +83,31 @@ Our target objective for this project is to create a shoe that will be able to c
 
 The first and current semester, highlighted in pink, will work on hardware capabilities of the system. This includes generating energy, determining an energy threshold for data transfer and ensuring that all sensors are functional. While currently parts are being used for testing, it is still possible for these to changed based on the amount of energy the system can provide. The second semester will work on software and reliability.
 
-\section{Engineering Standards and Constraints}\label{sec:Standards}
+Our goal analysis has slightly changed since the last report, however it doesn't not affect the fall semester. It was determined that two of the previous goals were dependant on the other. This can be seen in "Display Location on App" being moved to a new branch.
 
-I don't know what to put here about standards guys so I'd love some input please and thank you. I thought about leaving this blank but I can see if you actually read it if you respond to this part since it's obviously not really text if you read it. I should probably write something about not killing people since 9/10 most people don't buy something if it catches you on fire.
+\section{Engineering Standards and Constraints}\label{sec:Standards}
 
 As this system will be working with piezoceramics as the method of generating energy, this will restrict the entire system to operate in a low energy state since, despite the piezoceramics making a noticeable voltage spike, the current from most piezoceramics are in the milliampere range. This means the available energy to harvest is in the milliwatts.
 
 Another main constraint with our system is the usable workspace inside the shoe. Although the end goal is to completely replace the shoe sole with a Project Stride sole, the average shoe only gives a 1 centimeter depth of workspace for a circuit to operate in and requires a flexible enough material to allow the person wearing it to walk normally. In order to satisfy both of these conditions, we have chosen the Teensy 3.2 and Adafruit Flora products because of their size and low energy consumption. 
 
+As people will be directly interacting with our shoe as well, there is a certain level of safety we should uphold to not only keep people safe but maintain engineering standards. For instance, we will be following IEEE 11073: Wireless Communication Safety
+
 \section{Test Plan}\label{sec:Plan}
 The final project should be able to convert 70\% of human walking energy to electrical power, communicate to a smartphone application at least 10 feet away, and fit inside the confines of a completed shoe. By the end of the fall semester, the project should be able to transfer regulated energy to the microprocessor and read data from all intended sensors autonomously.
 
-Guys if you're reading this, I lifted this portion of the paper from the first paper because this is the only legitimate test plan we have written since every presentation Dr. Pei says he wants our test plan to really be a benchmark with numbers we are striving for but let's be realistic... these numbers aren't achievable.
-
 \section{Progress Description}\label{sec:Progress}
-In Fig. \ref{fig:Gantt}, a gantt chart can be seen with the projected schedule for the rest of the fall semester, color coded by member assigned tasks. A dotted line has been added to denote the current date. While there are many other tasks that need to be done to complete our target objective, this paper will only be focusing on those relevant to the remaining fall semester as those in the spring semester are more susceptible to change and are less concrete.
+In Fig. \ref{fig:Gantt}, a gantt chart can be seen with the projected schedule for the rest of the fall semester, color coded by member assigned tasks. Each member has a dark and a light color to denote the amount of progress that has been made on each task. A dotted line has been added to denote the current date. While there are many other tasks that need to be done to complete our target objective, this paper will only be focusing on those relevant to the remaining fall semester as those in the spring semester are more susceptible to change and are less concrete.
 
-\begin{figure}[h]
+\begin{figure}
 	\begin{center}
-		\includegraphics[trim=55 100 75 95, clip, width=\columnwidth]{GanttChart.pdf}
+		\includegraphics[trim=55 125 75 117, clip, width=\columnwidth]{GanttChart.pdf}
 	\end{center}
 	\vspace{-1em}
 	\caption{\label{fig:Gantt}Gantt Chart for the rest of Fall Semester}
 \end{figure}
+
+From the last report, many software milestones have been extended and pushed back since we were unable to foresee circumstances of hardware specifications limiting progress on software progress. This has already been reflected in Fig. \ref{fig:Gantt}. 
 
 \subsection{Objectives Accomplished}\label{sec:Accomplished}
 In the previous months of work, the team has been able to complete all tasks on time as scheduled in previous Gantt charts. These were mainly research based tasks including researching kinetic energy harvesters, determining low power thresholds, and purchasing relevant parts. 
@@ -115,7 +119,7 @@ From these research and design based tasks, we have moved to the testing stage f
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[trim=55 200 75 165, clip, width=\columnwidth]{Current.pdf}
+		\includegraphics[trim=55 210 75 168, clip, width=\columnwidth]{Current.pdf}
 	\end{center}
 	\vspace{-1em}
 	\caption{\label{fig:Current}Current readings from 4 piezoceramic sensors in 6 different combinations}
@@ -133,6 +137,18 @@ Using the ideal combination of piezoceramic disks as seen in these two graphs, w
 
 We have also began to test the ability to connect our sensors to our microprocessor and how much energy the total circuit will be drawing. While we have an approximate energy draw of 75 milliwatts, we have been considering even more low powered devices to decrease this draw further as Figs. \ref{fig:Current} \& \ref{fig:Voltage} do not approximate a large enough average wattage to power these electronics consistently enough.
 
+In order to implement the piezos, a model of one of our team members shoe sole was created as seen in Fig. \ref{fig:CAD}. This sole had two parts (these can be seen in the Appendix), that inserted into each other such that the person does not directly interact with the electronics.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{Sole.png}
+	\end{center}
+	\vspace{-1em}
+	\caption{\label{fig:CAD}CAD model of sole configuration}
+\end{figure}
+
+This model was then 3D printed into a negative mold so that a rubber model could be made. This model turned exactly as planned and is currently planned to start testing in the following weeks.
+
 \subsection{Objectives Remaining}\label{sec:Remaining}
 The rest of this semester efforts will mainly focus on continuing tests for the circuit design with the main goal for the fall semester culminating into the ability to transfer the energy currently being stored in the energy bank into the microprocessor. We would also like a basic phone application that can read the sensor values from a microprocessor in ideal settings set up prior to connecting the processor and sensors to our unideal energy source.
 
@@ -145,7 +161,7 @@ In Table \ref{table:Labor}, the approximate cost in labor and consulting for the
 		\begin{tabular}{ c|r c c r } 
 			Item & Projected Cost & Cost/rate & Amount & Actual Cost \\
 			\hline
-			Workers & \$64,000.00 & \$50/hr & 380 & \$19,000.00 \\ 
+			Workers & \$64,000.00 & \$50/hr & 450 & \$22,5000.00 \\ 
 			Consulting & \$2,500.00 & \$100/hr & 3.5 & \$350.00 \\ 
 			\hline
 			Total & \$66,500.00 &  &  & \$19,350.00 \\
@@ -153,7 +169,7 @@ In Table \ref{table:Labor}, the approximate cost in labor and consulting for the
 	\end{center}
 \end{table}
 
-The total cost of the shoe, seen in Table \ref{table:Components}, is projected to be around \$250. While this is considered to be a more expensive price for a pair of shoes, this is not an unreasonable price for a pair of shoes. As these shoes will also have advance technology inside of them and the possible mass production of the shoes when put on the market creates a lower price, the estimated cost of the shoes remains within a reasonable range.
+The total cost of the shoe, seen in Table \ref{table:Components}, is projected to be around \$265.05. While this is considered to be a more expensive price for a pair of shoes, this is not an unreasonable price for a pair of shoes. As these shoes will also have advance technology inside of them and the possible mass production of the shoes when put on the market creates a lower price, the estimated cost of the shoes remains within a reasonable range. Another thing to note is that not all of the components will be in the final product since it is some of the components we have bought were determined not to be needed or a replacement was needed.
 
 \begin{table}[h!]
 	\caption{\label{table:Components}Components Budget}
@@ -162,24 +178,41 @@ The total cost of the shoe, seen in Table \ref{table:Components}, is projected t
 			Item & Projected Cost & Cost/rate & Amount & Actual Cost \\
 			\hline
 			Microprocessor & \$30.00 & \$19.80/unit & 2 & \$39.00 \\ 
-			Piezoceramics & \$50.00 & \$1.00/sensor & 48 & \$48.00 \\ 
+			Piezoceramics & \$50.00 & \$1.00/sensor & 62 & \$62.00 \\ 
 			Bluetooth & \$30.00 & \$39.95/sensor & 1 & \$39.95 \\ 
 			GPS & \$20.00 & \$17.50/sensor & 1 & \$17.50 \\ 
-			Shoe & \$80.00 & 0/pair & 1 & 0.00 \\ 
-			Battery & \$40.00 & \$15.00/hr & 1 & \$15.00 \\ 
+			Shoe & \$80.00 & \$0.00/pair & 1 & 0.00 \\ 
+			Battery & \$40.00 & \$15.00/battery & 1 & \$15.00 \\ 
+			Other & \$200.00 & \$91.00 & 1 & \$91.00 \\ 
 			\hline
-			Total & \$250.00 &  &  & \$160.05 \\
+			Total & \$450.00 &  &  & \$265.05 \\
 		\end{tabular}
 	\end{center} 
 \end{table}
-
-\section{Risk Management}\label{sec:Risk}
-I have not yet killed Denny so that's a risk we've very successfully minimized.
 
 \section{Conclusion}\label{sec:Conclusion}
 The first semester for project stride is intended to focus on hardware and design issues. While we have encountered minor setbacks in the power specifications of our microprocessor and sensor modules from the our expected power output to our actual, we have not encountered any major setbacks from this and should continue on schedule to reach our target objectives at the end of the academic year.
     
 \section*{Acknowledgements}
 Project Stride would like to thank Doug Verret for his valuable input an guidance as the project sponsor as well as the Dr Steven Pei for leading the class as section facilitator.
+
+\break
+
+\section*{APPENDIX A \\ CAD Model of the Individual Halves}
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{SoleBottom.png}
+	\end{center}
+	\vspace{-1em}
+	\caption{\label{fig:Bottom}Bottom half of proposed sole design}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{SoleTop.png}
+	\end{center}
+	\vspace{-1em}
+	\caption{\label{fig:Top}Top half of proposed sole design}
+\end{figure}
 
 \end{document}
